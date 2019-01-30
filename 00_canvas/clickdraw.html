@@ -6,14 +6,19 @@
     </style>
     <meta charset="utf-8">
     <title>Canvas</title>
+    <script src="clickdraw.js"></script>
   </head>
   <body>
 
     <div>
-    <canvas height="600" width="600" id="slate">
+
+    <canvas height="600" width="600" id="slate" onmousedown = "draw()">
       dis dat alt text
     </canvas>
-  </div>
+    <br>
+    <button onclick="toggle()">Toggle</button>
+    <button onclick="clr()">Clear</button>
+    </div>
 
   </body>
 </html>
