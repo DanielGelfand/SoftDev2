@@ -1,3 +1,10 @@
+<!--
+Daniel Gelfand
+SoftDev2 pd6
+K#00 -- I See A Red Door...
+2019-01-31 R
+-->
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -12,11 +19,12 @@
 
     <div>
 
-    <canvas height="600" width="600" id="slate" onmousedown = "draw()">
+    <canvas height="600" width="600" id="slate" onmousedown = "draw(event)">
       dis dat alt text
     </canvas>
     <br>
-    <button onclick="toggle()">Toggle</button>
+    <!-- Starts with dot mode -->
+    <button id="tgl" onclick="toggle()">Dot Mode - Toggle </button>
     <button onclick="clr()">Clear</button>
     </div>
 
