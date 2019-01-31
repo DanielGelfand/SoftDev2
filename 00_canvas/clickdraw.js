@@ -42,15 +42,15 @@ var draw = function(event){
 
   // if dot mode
   if(mode == 0){
-    alert("drawing dot");
+    //alert("drawing dot");
     ctx.beginPath();
-    ctx.ellipse(event.clientX, event.clientY , 10 , 10, Math.PI , 0, 2 * Math.PI);
+    ctx.ellipse(event.offsetX, event.offsetY , 10 , 10, Math.PI , 0, 2 * Math.PI);
     ctx.fill();
   }
   // rect mode
   else{
-    alert("drawing box")
-    ctx.fillRect(event.clientX, event.clientY , 50, 100)
+    //alert("drawing box")
+    ctx.fillRect(event.offsetX, event.offsetY , 50, 100)
   }
 
 }
