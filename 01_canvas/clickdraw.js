@@ -35,7 +35,7 @@ var clr = function(){
 var draw = function(event){
   //alert("drawing");
   //console.log(event);
-  event.preventDefault();
+  event.preventDefault(); // cancels event if it is cancellable
   var canvas = document.getElementById("slate");
   var ctx = canvas.getContext("2d");
   ctx.fillStyle = "#ff0000"; //red color
