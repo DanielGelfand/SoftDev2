@@ -1,0 +1,20 @@
+var radius = ...;
+var growing = true;
+var clear = function(e){;};
+var drawDot = function(){
+    ...
+	//draw the dot
+	ctx.beginPath(); //begins path 
+	ctx.arc(c.width / 2, c.height / 2, radius, 0 ,2 * Math.PI);
+    ctx.stroke();
+    ctx.file();
+    ... //fill this in yuhurd
+};
+
+//stop the circle
+var stopIt = function(){
+
+};
+
+dotButton.addEventListener("click". drawDot);
+stopButton.addEventListener("click". stopIt);
