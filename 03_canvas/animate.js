@@ -17,7 +17,7 @@ var drawDot = function(event){
     /*if(reqID != 0){
       event.preventDefault();
     }*/
-
+    stopIt();
     clear();
     //draw the dot
     ctx.beginPath(); //begins path
