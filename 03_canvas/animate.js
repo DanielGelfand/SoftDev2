@@ -1,3 +1,9 @@
+/*
+Unicorns - Daniel Gelfand, Jabir Chowdhury, Jiajie Mai
+SoftDev2 pd6
+K#03 -- They lock us in the tower whenever we get caught
+2019-02-06 W
+*/
 var canvas = document.getElementById('playground');
 var ctx = canvas.getContext('2d');
 var radius = 0;
