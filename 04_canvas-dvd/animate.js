@@ -93,6 +93,9 @@ var stopIt = function(){
     window.cancelAnimationFrame( reqID );
 };
 
-dotButton.addEventListener("click", drawDot);
+dotButton.addEventListener("click", function(){
+  radius = 0;
+  drawDot();
+});
 stopButton.addEventListener("click", stopIt);
 dvdButton.addEventListener("click", dvdLogoSetup);
