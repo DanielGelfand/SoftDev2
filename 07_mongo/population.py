@@ -25,22 +25,34 @@ def get_year(totalPop):
 
 #print( get_year(4430000) )
 
-def get_years_females_gte(numFemales):
-    '''returns years when female population was greater than or equal to num provided'''
+#defaults to female population
+def get_years_gte(numSex, female = True):
+    '''returns years when female or male population was greater than or equal to num provided'''
     lout = []
-
-    for doc in collection.find({"females": {"$gte": numFemales}}):
-        lout.append(doc)
+    if(female):
+        for doc in collection.find({"females": {"$gte": numSex}}):
+            lout.append(doc)
+    # look at males
+    else:
+        for doc in collection.find({"males": {"$gte": numSex}}):
+            lout.append(doc)
     return lout
 
-#print( get_years_females_gte( 2300000 ) )
+#print( get_years_gte( 2300000 ) )
+#print( get_years_gte( 1300000, False ) )
 
-def get_years_females_lte(numFemales):
-    '''returns years when female population was less than or equal to num provided'''
+def get_years_lte(numSex, female = True):
+    '''returns years when female or male population was less than or equal to num provided'''
     lout = []
 
-    for doc in collection.find({"females": {"$lte": numFemales}}):
-        lout.append(doc)
+    if(female):
+        for doc in collection.find({"females": {"$lte": numSex}}):
+            lout.append(doc)
+    # look at males
+    else:
+        for doc in collection.find({"males": {"$lte": numSex}}):
+            lout.append(doc)
     return lout
 
-#print( get_years_females_lte( 100000 ) )
+#print( get_years_lte( 100000 ) )
+#print( get_years_lte( 100000, False ) )
