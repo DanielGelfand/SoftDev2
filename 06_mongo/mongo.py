@@ -1,3 +1,11 @@
+'''
+Daniel Gelfand and Jabir Chowdhury - Janiel
+SoftDev2 pd6
+K #06 -- Yummy Mongo Py
+2019-03-01
+'''
+
+
 from pymongo import MongoClient
 SERVER_ADDR='157.230.12.32'
 client = MongoClient(SERVER_ADDR, 27017)
