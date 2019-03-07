@@ -5,7 +5,7 @@ K #08 -- Ay Mon, Go Git It From Yer Flask
 2019-03-08
 '''
 from flask import Flask,render_template,request,session
-import mongo
+#import mongo
 import pymongo
 import json
 import os
@@ -22,8 +22,8 @@ def query():
     session["ip"]=ip
     connection=pymongo.MongoClient(ip)
     connection.drop_database("ApacheHelicopters")
-    db=connection["ApacheHelicopters"] 
-    collection=db["nobel_laureates"] 
+    db=connection["ApacheHelicopters"]
+    collection=db["nobel_laureates"]
     F=open('laureate.json')
     data=json.load(F)
     collection.insert_many(data)
@@ -31,8 +31,8 @@ def query():
     return render_template("query.html",ip=ip)
 def categoryFinder(category,ip):
     connection=pymongo.MongoClient(ip)
-    db=connection["ApacheHelicopters"] 
-    collection=db["nobel_laureates"] 
+    db=connection["ApacheHelicopters"]
+    collection=db["nobel_laureates"]
     docs=collection.find({"prizes.category":category})
     laureates=[]
     for doc in docs:
@@ -40,8 +40,8 @@ def categoryFinder(category,ip):
     return laureates
 def yearFinder(year,ip):
     connection=pymongo.MongoClient(ip)
-    db=connection["ApacheHelicopters"] 
-    collection=db["nobel_laureates"] 
+    db=connection["ApacheHelicopters"]
+    collection=db["nobel_laureates"]
     docs=collection.find({"prizes.year":year})
     laureates=[]
     for doc in docs:
