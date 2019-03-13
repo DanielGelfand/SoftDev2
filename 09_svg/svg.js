@@ -15,14 +15,14 @@ var drawDot = function(e){
       var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
 
       // Set line attributes
-      line.setAttribute( "x1", prev.getAttribute( "cx" ) );
-      line.setAttribute( "y1", prev.getAttribute( "cy" ) );
-      line.setAttribute( "x2", e.offsetX );
-      line.setAttribute( "y2", e.offsetY );
-      line.setAttribute( "stroke", "black" );
+      line.setAttribute("x1", prev.getAttribute( "cx" ) );
+      line.setAttribute("y1", prev.getAttribute("cy") );
+      line.setAttribute("x2", e.offsetX);
+      line.setAttribute("y2", e.offsetY);
+      line.setAttribute("stroke", "black");
 
       // add line to pic
-      pic.appendChild( line );
+      pic.appendChild(line);
     }
 
 
