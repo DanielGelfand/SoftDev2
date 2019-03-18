@@ -12,7 +12,6 @@ var drawDot = function(e){
 
     var children = pic.children;
     var blue = false;
-
     for(child of children){
       //console.log(child.getAttribute('cx'))
       if( inBounds(child,e)){
@@ -32,7 +31,7 @@ var drawDot = function(e){
     //prev = 0;
 };
 
-// Reloads page
+// Clears image
 var clear = function(){
   while (pic.lastChild) {
       pic.removeChild(pic.lastChild);
