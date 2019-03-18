@@ -25,7 +25,7 @@ var drawDot = function(e){
   if (!(blue)) {
     pic.appendChild(createCircle(e.offsetX, e.offsetY));
   }
-  
+
 };
 
 // Clears image
@@ -44,38 +44,63 @@ var moveDots = function(){
   //alert(children.length)
 
   var anim = function(){
-    stopDots()
+    stopDots();
     for(child of children){
       var x = parseInt( child.getAttribute("cx") );
       var y = parseInt( child.getAttribute("cy") );
       var xVel = parseInt(child.getAttribute('xVel'));
       var yVel = parseInt(child.getAttribute('yVel'));
 
-      if( x>= width || x < 15 ){
-          xVel *= -1
-          child.setAttribute("xVel", xVel)
+      if( x>= width || x < 10){
+          xVel *= -1;
+          child.setAttribute("xVel", xVel);
       }
 
-      if( y>= height ||  y < 15){
-        yVel *= -1
+      if( y>= height ||  y < 10){
+        yVel *= -1;
         child.setAttribute("yVel", yVel)
       }
-      x += xVel
-      y += yVel
+      x += xVel;
+      y += yVel;
       //console.log(rep.getAttribute("cx"))
       child.setAttribute("cx", x);
       child.setAttribute("cy", y);
 
     }
 
-    reqID = window.requestAnimationFrame(anim)
+    reqID = window.requestAnimationFrame(anim);
   };
-  anim()
+  anim();
+};
+
+var shimmer = function(e){
+  var width = pic.getAttribute('width');
+  var height = pic.getAttribute('height');
+
+  children = pic.children
+  //alert(children.length)
+
+  var animi = function(){
+    for(child of children){
+
+      var radius = parseInt( child.getAttribute('r'));
+
+      radius += Math.random() * 20 - 10;
+
+      child.setAttribute("r", radius);
+
+      stopDots();
+    }
+    console.log(reqID);
+    reqID = window.requestAnimationFrame(animi);
+  };
+  animi();
 };
 
 var stopDots = function(){
   //alert("called stopdotss")
   window.cancelAnimationFrame( reqID );
+  reqID = 0;
 };
 
 // Checks if mouse click is in bounds of the given circle
@@ -102,10 +127,11 @@ var createCircle = function(x,y){
   c.setAttribute("r", 10);
   c.setAttribute("fill", "red");
   c.setAttribute("stroke", "black");
-  c.setAttribute('xVel', 1);
-  c.setAttribute('yVel', 1);
+  var velX = parseInt(Math.random() * 10 - 5);
+  var velY = parseInt(Math.random() * 10 - 5);
+  c.setAttribute('xVel', velX);
+  c.setAttribute('yVel', velY);
   return c;
-
 }
 
 var changeCircle = function(circle){
@@ -123,3 +149,4 @@ var changeCircle = function(circle){
 pic.addEventListener("click",drawDot);
 document.getElementById("clr").addEventListener("click", clear);
 document.getElementById("move").addEventListener("click", moveDots);
+document.getElementById("shimmer").addEventListener("click", shimmer);
