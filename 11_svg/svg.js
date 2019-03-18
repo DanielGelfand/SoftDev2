@@ -9,7 +9,7 @@ var pic = document.getElementById("vimage");
 var reqID = 0;
 //var prev = 0;
 
-var drawDot = function(e,toMove){
+var drawDot = function(e){
 
   var children = pic.children;
   var blue = false;
@@ -25,12 +25,7 @@ var drawDot = function(e,toMove){
   if (!(blue)) {
     pic.appendChild(createCircle(e.offsetX, e.offsetY));
   }
-
-  if(toMove){
-    alert("WE SHOULD MOVE THE BALLS");
-  }
-
-  //prev = 0;
+  
 };
 
 // Clears image
