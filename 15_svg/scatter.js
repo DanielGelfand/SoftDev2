@@ -6,7 +6,7 @@ K15 -- Scattered
 */
 var data = [[2,2],[5,5],[6,6],[7,7],[8,8],[1,1],[3,3],[4,7]];
 
-var margin = {top: 40, right: 70, bottom: 40, left: 70}
+var margin = {top: 40, right: 70, bottom: 40, left: 100}
 , width = 1000 - margin.left - margin.right
 , height = 500 - margin.top - margin.bottom;
 
@@ -25,8 +25,8 @@ var y = d3.scaleLinear()
 // Set size of chart and add class chart
 var chart = d3.select('body')
 .append('svg')
-.attr('width', width + margin.right + margin.left)
-.attr('height', height + margin.top + margin.bottom)
+.attr('width', 1000)
+.attr('height', 500)
 .attr('class', 'chart')
 
 // Append a g element to the SVG
@@ -49,6 +49,8 @@ main.append('g')
 .attr('class', 'axis')
 .call(yAxis);
 
+
+
 var g = main.append("g");
 
 g.selectAll("dots")
@@ -58,3 +60,22 @@ g.selectAll("dots")
 .attr("cy", function (d) { return y(d[1]); } )
 .attr("fill","purple")
 .attr("r", 10);
+
+//Create Title
+main.append("text")
+.attr("x", (width + margin.left + margin.right) / 2)
+.attr("y", 0)
+.style("text-anchor", "middle")
+.text("X,Y Values Plot");
+
+main.append("text")
+.attr("x", (width) )
+.attr("y",  height + margin.bottom)
+.style("text-anchor", "end")
+.text("X");
+
+main.append("text")
+.attr("x", margin.left - 150)
+.attr("y", 0)
+.style("text-anchor", "start")
+.text("Y");
