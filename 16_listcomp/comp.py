@@ -35,29 +35,38 @@ def strength(password):
     '''Returns 1-10 strength of password if minimum threshold met'''
 
     # if it doesn't meet threshold
-    if  not ( meetThreshold(password) ):
-        return "Does not even meet minimum threshold"
+    if  not (len(password) > 2):
+        return "Does not even meet minimum threshold!"
     # meets threshold
     else:
         strength = 1 #1 for meeting threshold
-        yes_ups = [1 for char in password if UP_CASE.find(char) != -1]
-        yes_lows = [1 for char in password if LOW_CASE.find(char) != -1]
-        yes_nums = [1 for char in password if char in NUMS ]
-        yes_nonalpha = [1 for char in password if NON_ALPHA.find(char) != -1 ]
+        yes_ups = (sum([1 for char in password if UP_CASE.find(char) != -1]) > 0)
+        yes_lows = (sum([1 for char in password if LOW_CASE.find(char) != -1]) > 0)
+        yes_nums = (sum([1 for char in password if char in NUMS ]) > 0)
+        yes_nonalpha = (sum([1 for char in password if NON_ALPHA.find(char) != -1 ]) > 0)
 
         if len(password) >= 6:
             strength += 1
 
-        strength += sum(yes_ups)
-        strength += sum(yes_lows)
-        strength += sum(yes_nums)
-        strength += sum(yes_nonalpha)
+        if(yes_ups):
+            strength += 2;
+        if(yes_lows):
+            strength += 2;
+        if(yes_nums):
+            strength += 2;
+        if(yes_nonalpha):
+            strength += 2;
 
-        if(strength  > 10):
-            strength = 10
+
+        # if(strength  > 10):
+        #     strength = 10
 
 
     return strength
 
-
-
+print(strength("hI")) # "Does not even meet minimum threshold"
+print(strength("hhh")) #3
+print(strength("hII")) #5
+print(strength("hI1")) #7
+print(strength("hI&1")) #9
+print(strength("hITh3r3C&&LMan")) # 10
