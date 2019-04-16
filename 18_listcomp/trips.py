@@ -1,3 +1,11 @@
+'''
+Daniel Gelfand
+SoftDev2 pd6
+K#18 -- Getting Clever with List Comprehensions
+2019-04-16
+'''
+
+
 def triples(n):
 
     triples = [ (x,y,z) for x in range(1,n) for y in range(x,n) for z in range(y,n) if x**2 + y**2 == z**2]
