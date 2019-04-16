@@ -7,13 +7,14 @@ K#18 -- Getting Clever with List Comprehensions
 
 
 def triples(n):
-
+    '''Generates a list of all Pythagorean triples on range [0,n)'''
     triples = [ (x,y,z) for x in range(1,n) for y in range(x,n) for z in range(y,n) if x**2 + y**2 == z**2]
     return triples
 
 print( triples(20) )
 
 def quicksort(l):
+    '''Sorts a list using quicksort algorithm'''
     if len(l) <= 1:
         return l
 
