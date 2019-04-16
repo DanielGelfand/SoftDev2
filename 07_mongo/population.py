@@ -19,11 +19,11 @@ import subprocess  # used to run a child process that imports the json data
 
 import pymongo
 
-SERVER_ADDR="206.189.75.99"
+SERVER_ADDR="157.230.12.32"
 FILE="population.json"
 connection=pymongo.MongoClient(SERVER_ADDR)
-command=f"mongoimport --host {SERVER_ADDR} --drop --db specialboard --collection population --file {FILE} --jsonArray" # "--jsonArray" needs to be included since JSON file is inclosed in an array
-child=subprocess.run(command) 
+#command=f"mongoimport --host {SERVER_ADDR} --drop --db specialboard --collection population --file {FILE} --jsonArray" # "--jsonArray" needs to be included since JSON file is inclosed in an array
+#child=subprocess.run(command) 
 db = connection.specialboard
 collection = db.population
 

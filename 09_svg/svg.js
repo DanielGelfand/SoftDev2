@@ -25,7 +25,6 @@ var drawDot = function(e){
       pic.appendChild(line);
     }
 
-
     var dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     //alert(e)
     dot.setAttribute("cx", e.offsetX);
@@ -42,6 +41,11 @@ var drawDot = function(e){
   // Reloads page
 var clear = function(){
   location.reload();
+};
+
+
+var attributes = function(){
+    alert(pic.children[0].getAttribute("cx"));
 };
 
 pic.addEventListener("click",drawDot);
