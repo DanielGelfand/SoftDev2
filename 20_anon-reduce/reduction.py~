@@ -1,0 +1,4 @@
+def Process(file):
+    f = open(file,'r')
+    lines = f.read().split()
+    f.close()
