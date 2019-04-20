@@ -8,6 +8,7 @@ K#20: Reductio ad Absurdum
 from functools import reduce
 
 def get_words(file):
+    '''Returns the words in a list of a given file'''
     f = open(file,'r')
     words = [''.join(c for c in word if c.isalpha() or c=="'") for word in f.read().split()]
     f.close()
@@ -16,6 +17,7 @@ def get_words(file):
 #print( get_words('text.txt') )
 
 def freqWord(file,word):
+    '''Calculates the frequency of a given word in a text file'''
    # counter = 0
    words = get_words(file)
    return reduce(lambda x,y: x+1  if word.lower() == y.lower() else x,words,0)
@@ -24,6 +26,7 @@ def freqWord(file,word):
 
 
 def mostCommonWord(file):
+    '''Finds the most common word in a text file'''
     words = get_words(file)
     wordCounts = {}
     for word in words:
