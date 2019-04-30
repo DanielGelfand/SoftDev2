@@ -1,3 +1,7 @@
+//Team Telepathic Twinsies- Daniel Gelfand & Damian Wasilewicz 
+//SoftDev2 Pd6
+//K #21: Onions, Bell Peppers, and Celery, Oh My!
+//2019-05-30
 
 //Open csv file using d3 magic
 d3.csv("2006_-_2012_School_Demographics_and_Accountability_Snapshot.csv").then(function(data){
