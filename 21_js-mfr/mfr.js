@@ -1,9 +1,43 @@
-var data = "02M003,PS 003 CHARRETTE SCHOOL,20052006,15.8,,563,36,93,81,93,71,87,102,,,,,,,,21,3.7,106,18.8,24,11,38,6.7,114,20.2,106,18.8,293,52,296,52.6,267,47.4\n\
-02M003,PS 003 CHARRETTE SCHOOL,20062007,15.6,,551,54,79,91,80,94,71,82,,,,,,,,20,3.6,107,19.4,33,11,36,6.5,96,17.4,94,17.1,306,55.5,319,57.9,232,42.1\n\
-02M003,PS 003 CHARRETTE SCHOOL,20072008,6.6,,585,51,105,86,95,79,96,73,,,,,,,,36,6.2,98,16.8,48,10,52,8.9,72,12.3,100,17.1,314,53.7,323,55.2,262,44.8\n\
-02M003,PS 003 CHARRETTE SCHOOL,20082009,11.2,,640,54,107,115,82,104,83,95,,,,,,,,30,4.7,118,18.4,52,22,45,7,75,11.7,99,15.5,363,56.7,340,53.1,300,46.9\n\
-02M003,PS 003 CHARRETTE SCHOOL,20092010,   ,17.4,625,,127,123,110,79,105,81,,,,,,,,30,4.8,112,17.9,48,20,36,5.8,56,9,86,13.8,372,59.5,329,52.6,296,47.4\n\
-02M003,PS 003 CHARRETTE SCHOOL,20102011,   ,14.7,720,74,99,139,116,108,81,103,,,,,,,,25,3.5,119,16.5,61,18,40,5.6,55,7.6,104,14.4,466,64.7,380,52.8,340,47.2\n\
-02M003,PS 003 CHARRETTE SCHOOL                         ,20112012,,14.2,813,84,175,116,134,114,108,82,    ,    ,    ,    ,    ,    ,    ,28,3.4,117,14.4,56,17,49,6,53,6.5,118,14.5,544,66.9,411,50.6,402,49.4"
-var dataArr = data.split("\n");
-console.log(dataArr);
+//Team Telepathic Twinsies- Daniel Gelfand & Damian Wasilewicz
+//SoftDev2 Pd6
+//K #21: Onions, Bell Peppers, and Celery, Oh My!
+//2019-05-30
+
+var data;
+var num = document.getElementById("num");
+var nthree = document.getElementById("numthree");
+var sumthree = document.getElementById("sumthree");
+
+d3.json("https://raw.githubusercontent.com/stuy-softdev/workshop/master/thluffy/21_js-mfr/2006_-_2012_School_Demographics_and_Accountability_Snapshot.json?token=AFRFQK7N644MC7AUI4U22J242DI26", function(error, d) {
+    data = d;
+      //console.log(data)
+    // filter out row entries that represent school PS034
+    var PS034 = data.filter(function(n){
+        return (n["DBN"]=="01M034");
+    })
+    console.log(PS034)
+
+    // number enrolled in that school for each year
+    var num_enrolled = PS034.map(function(n){
+        return parseInt(n["total_enrollment"])
+    });
+
+    num.innerHTML = num_enrolled
+    console.log(num_enrolled)
+
+    var num_third = PS034.map(function(n){
+        return parseInt(n["grade3"])
+      });
+      nthree.innerHTML = num_third
+      console.log(num_third)
+
+
+    //Get sum of number of third graders for all years of PS034 rows
+    var sum_third = num_third.reduce(function(a,b){
+        return a+b;
+    });
+
+    sumthree.innerHTML = sum_third
+    console.log(sum_third)
+
+});
