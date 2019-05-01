@@ -9,20 +9,28 @@ def fib_old(n):
 
     return stored[n]
 
-for i in range(0,1000):
-    print(fib_old(i))
+#for i in range(0,41):
+    #print(fib_old(i))
 
 
 def memoize(f):
     memo = {}
     def helper(x):
-        #stuff
-        return
+        if x not in memo:
+            memo[x] = f(x)
+            
+        return memo[x]
     return helper
 
 def fib(n):
-    #stuff
-    return
+    if n==0:
+        return 0
+
+    elif n==1:
+        return 1
+    else:
+        return fib(n-1) + fib(n-2)
 
 fib = memoize(fib)
-print(fib(40))
+print( fib(40) )
+print( fib(4) )
