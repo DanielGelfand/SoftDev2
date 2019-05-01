@@ -23,23 +23,26 @@ r2 = repeat(2)
 #print( repeat("cool")(3) )
 
 
-def make_counter(accessor = False):
-    i = 0
+def make_counter(accessor_activated = False):
+    counter = 0
 
-    if not accessor:
+    def incr():
+        nonlocal counter #edit scope
+        counter += 1 #update counter
+        return counter
 
-        def incr():
-            nonlocal i
-            i+=1
-            return i
+    def accessor():
+        return counter
 
-        return incr
+    def func_choice(access=False):
+        if not access:
+            return incr()
+        else:
+            return accessor()
 
-    else:
-
-        def accessor():
-            return i
-        return accessor
+    if accessor_activated:
+        return func_choice
+    return incr
 
 ctr1 = make_counter()
 print( ctr1() )
@@ -50,11 +53,12 @@ print( ctr2() )
 print( ctr1() )
 print( ctr2() )
 
-ctr2 = make_counter(True)
-print( ctr2() )
-
 ctr3 = make_counter(True)
-#print(ctr3())
+ctr3()
+ctr3()
+print( "ctr3:",ctr3(True) )
+
+
 
 
 
