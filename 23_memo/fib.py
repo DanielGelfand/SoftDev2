@@ -1,3 +1,10 @@
+'''
+Daniel Gelfand
+SoftDev2 pd6
+K#23
+2019-05-02
+'''
+
 stored = {0:0,1:1}
 def fib_old(n):
     
